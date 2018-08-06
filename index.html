@@ -10,15 +10,33 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
-        <div class="container-fluid sticky-top menu text-center" style="background-color: orange">
+        <div class="container-fluid sticky-top text-center" style="background-color: orange">
             <a href="index.html">
                 <img class="img-fluid" src="media/icon/HBWhiteTransparent.png" style="margin: 1em 0; height: 45px; display: inline">
             </a>
+            <img src="media/icon/cart.png" style="height: 40px; display: inline; float: right; margin-top: 1em" onclick="if(document.getElementById('cart').style.display=='none'){document.getElementById('cart').style.display='block'} else{document.getElementById('cart').style.display='none'}">
+            <div id="cart" style="display: none; margin: 0; background-color: white; position: fixed; right: 0; width: 50%; min-width: 300px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+                
+                <div style="padding-right: 0; background-color: rgb(240,240,240)">
+                    <div class="text-left" onclick="document.getElementById('cartItem').innerHTML = ''; document.getElementById('emptyBasket').innerHTML = 'Your basket is empty'">&nbsp; Clear</div>
+                    <p id="emptyBasket">Your basket is empty</p>
+                    <div class="container text-left" id="cartItem">            
+                        
+                    </div>
+                    <br>
+                </div>
+                
+                
+                <div class="text-center" style="padding: 0.5em; color: white; background-color: limegreen">
+                    Go to Checkout
+                </div>
+                
+            </div>
         </div>
         <br>
         <div class="search-container text-center">
             <form action="">
-                <input type="text" placeholder=" What are you craving?" name="search" style="width: 17em">
+                <input type="text" id="myInput" onkeyup="myFunction()" placeholder=" What are you craving?" name="search" style="width: 17em">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
@@ -37,7 +55,7 @@
         <br>
         
         
-        <div class="container">
+        <div class="container" id="myUL">
             <div class="text-center"><h4>Today Specials</h4></div>
             
             <div class="row">
@@ -55,8 +73,8 @@
                         <p style="padding: 0; margin: 0">20-30 mins</p>
                     </a>
                 </div>
-            </div>
-            <div class="row">
+            
+            
                 <div class="col-6" style="padding: 0.5em">
                     <a href="homecook.html">
                         <img class="img-fluid" src="media/food/food3.jpg">
@@ -71,8 +89,8 @@
                         <p style="padding: 0; margin: 0">30-40 mins</p>
                     </a>
                 </div>
-            </div>
-            <div class="row">
+            
+                
                 <div class="col-6" style="padding: 0.5em">
                     <a href="homecook.html">
                         <img class="img-fluid" src="media/food/food5.jpg">
@@ -87,8 +105,8 @@
                         <p style="padding: 0; margin: 0">20-30 mins</p>
                     </a>
                 </div>
-            </div>
-            <div class="row">
+            
+                
                 <div class="col-6" style="padding: 0.5em">
                     <a href="homecook.html">
                         <img class="img-fluid" src="media/food/food7.jpg">
@@ -103,8 +121,8 @@
                         <p style="padding: 0; margin: 0">10-20 mins</p>
                     </a>
                 </div>
-            </div>
-            <div class="row">
+            
+                
                 <div class="col-6" style="padding: 0.5em">
                     <a href="homecook.html">
                         <img class="img-fluid" src="media/food/food9.jpg">
@@ -119,8 +137,8 @@
                         <p style="padding: 0; margin: 0">30-40mins</p>
                     </a>
                 </div>
-            </div>
-            <div class="row">
+            
+                
                 <div class="col-6" style="padding: 0.5em">
                     <a href="homecook.html">
                         <img class="img-fluid" src="media/food/food11.jpg">
@@ -157,7 +175,7 @@
                         <h6>Legal</h6>
                         <ul style="list-style-type: none; padding: 0">
                             <li>Safety</li>
-                            <li>Terms and conditions/li>
+                            <li>Terms and conditions</li>
                             <li>Privacy</li>
                             <li>Cookies</li>
                         </ul>
@@ -171,6 +189,25 @@
         </div>
         
         
+
+        
+        <script>
+            function myFunction() {
+                var input, filter, ul, li, a, i;
+                input = document.getElementById("myInput");
+                filter = input.value.toUpperCase();
+                ul = document.getElementById("myUL");
+                li = ul.getElementsByClassName("col-6");
+                for (i = 0; i < li.length; i++) {
+                    a = li[i].getElementsByTagName("p");
+                    if (a[0].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        li[i].style.display = "";
+                    } else {
+                        li[i].style.display = "none";
+                    }
+                }
+            }
+        </script>
         
     </body>
 </html>
