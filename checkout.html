@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Hungry Bird</title>
+        <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="main.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    
+    
+    <body>
+        <div class="container-fluid sticky-top text-center" style="background-color: orange">
+            <a href="index.html">
+                <img class="img-fluid" src="media/icon/HBWhiteTransparent.png" style="margin: 1em 0; height: 45px; display: inline">
+            </a>
+            <img src="media/icon/cart.png" style="height: 40px; display: inline; float: right; margin-top: 1em" onclick="if(document.getElementById('cart').style.display=='none'){document.getElementById('cart').style.display='block'} else{document.getElementById('cart').style.display='none'}">
+            <div id="cart" style="display: none; margin: 0; background-color: white; position: absolute; right: 0; width: 50%; min-width: 300px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+                
+                <div style="padding-right: 0; background-color: rgb(240,240,240)">
+                    <div class="text-left" onclick="document.getElementById('cartItem').innerHTML = ''; document.getElementById('emptyBasket').innerHTML = 'Your basket is empty'">&nbsp; Clear</div>
+                    <p id="emptyBasket">Your basket is empty</p>
+                    <div class="container text-left" id="cartItem">            
+                        
+                    </div>
+                    <br>
+                </div>
+                
+                <div class="text-center" style="padding: 0.5em; color: white; background-color: limegreen">
+                    Go to Checkout
+                </div>
+                
+            </div>
+        </div>
+        
+        <br>
+        <p class="text-right">Order Help &nbsp;&nbsp;</p>
+        <div class="container-fluid text-center">
+            <h1>Thank you for your order</h1>
+            <br>
+            <p><b>Your food is out for delivery!</b><br>Order number <b>#0001</b></p>
+            <br>
+            <div class="container-fluid" style="background-color: rgb(240,240,240); padding: 1.2em">
+                <p class="text-left" style="margin-bottom: 0"><b>LIVE</b> Estimated arrival</p>
+                <h2 class="text-left">12:00-12:20</h2>
+                <img class="img-fluid" src="media/map/delivery.png">
+            </div>
+            <div class="container-fluid text-left" style="color: white; background-color: lightseagreen; padding: 1.2em">
+                <div class="row">
+                    <div class="col-6">
+                        <h5 style="margin: 0">&nbsp;Hermès</h5>
+                        <p style="margin: 0">&nbsp;Delivery</p>
+                    </div>
+                    <div class="col-6 text-right" style="margin-top: 0.75em">
+                        <h5>Call &nbsp;&nbsp;|&nbsp;&nbsp;Text&nbsp;&nbsp;</h5>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+        
+
+        <br><br>
+        <div class="container-fluid" style="background-color: #94958B; font-size: 0.9rem">
+            <div class="container" style="color: white">
+                <br>
+                <div class="row">
+                    <div class="col-6" style="background-color:rgba(255, 255, 255, 0.15); padding: 0.5em 1em">
+                        <h6>Discover</h6>
+                        <ul style="list-style-type: none; padding: 0;">
+                            <li>About us</li>
+                            <li>News</li>
+                            <li>Careers</li>
+                            <li>Restaurant signup</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="col-6" style="background-color:rgba(255, 255, 255, 0.15); padding: 0.5em 1em">
+                        <h6>Legal</h6>
+                        <ul style="list-style-type: none; padding: 0">
+                            <li>Safety</li>
+                            <li>Terms and conditions/li>
+                            <li>Privacy</li>
+                            <li>Cookies</li>
+                        </ul>
+                    </div>
+                </div>
+                <br>
+                <p>© 2018 Hungry Bird</p>
+                
+                <br>
+            </div>
+        </div>
+        
+        <script>
+            function add() {
+                cartItem = document.getElementById("cartItem");
+                cartItem.appendChild(this.innerHTML);
+            }
+        
+        </script>
+        
+        
+    </body>
+</html>
