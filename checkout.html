@@ -37,20 +37,15 @@
         
         <br>
         <p class="text-right">Order Help &nbsp;&nbsp;</p>
-        <div class="container-fluid text-center">
+        <div class="container text-center">
             <h1>Thank you for your order</h1>
             <br>
             <p><b>Your food is out for delivery!</b><br>Order number <b>#0001</b></p>
             <br>
-            <div class="container-fluid" style="background-color: rgb(240,240,240); padding: 1.2em">
-                <p class="text-left" style="margin-bottom: 0"><b>LIVE</b> Estimated arrival</p>
-                <h2 class="text-left">12:00-12:20</h2>
-                <img class="img-fluid" src="media/map/delivery.png">
-            </div>
-            <div class="container-fluid text-left" style="color: white; background-color: lightseagreen; padding: 1.2em">
+            <div class="container text-left" style="color: white; background-color: lightseagreen; padding: 1.2em">
                 <div class="row">
                     <div class="col-6">
-                        <h5 style="margin: 0">&nbsp;Hermès</h5>
+                        <h5 style="margin: 0">&nbsp;Your Courier Today is: Bank</h5>
                         <p style="margin: 0">&nbsp;Delivery</p>
                     </div>
                     <div class="col-6 text-right" style="margin-top: 0.75em">
@@ -59,6 +54,12 @@
                 </div>
                 
             </div>
+            <div class="container" style="background-color: rgb(240,240,240); padding: 1.2em">
+                <h2 style="margin-bottom: 0"><b>LIVE</b> Estimated arrival</h2>
+                <h1 id="time">05 seconds</h1>
+                <img class="img-fluid" src="media/map/delivery.png">
+            </div>
+            
             
         </div>
         
@@ -96,10 +97,28 @@
         </div>
         
         <script>
-            function add() {
-                cartItem = document.getElementById("cartItem");
-                cartItem.appendChild(this.innerHTML);
+            function startTimer(duration, display) {
+                var timer = duration, minutes, seconds;
+                setInterval(function () {
+                    minutes = parseInt(timer / 60, 10)
+                    seconds = parseInt(timer % 60, 10);
+
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                    display.textContent = seconds + ' seconds';
+
+                    if (--timer < 0) {
+                        timer = 0;
+                    }
+                }, 1000);
             }
+
+            window.onload = function () {
+                var fiveMinutes = 5,
+                    display = document.querySelector('#time');
+                startTimer(fiveMinutes, display);
+            };
         
         </script>
         
